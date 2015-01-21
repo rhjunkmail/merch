@@ -20,3 +20,18 @@
 7. Provide destroy functionality
 ---
 8. Think about other resources (users)
+
+---
+## Notes
+
+### What is REST (and RESTfulness)?
+
+REST stands for REpresentational State Transfer.
+Technobabble speak for http conventions expressed through server-side code.
+
+POST requests should CREATE _something in a DB
+GET requests should READ _something from a DB
+PUT/PATCH request should UPDATE _something in a DB
+DELETE request should DESTROY _something in a DB
+
+CRUD out to be RESTful representation of http verbs.

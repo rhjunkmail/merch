@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
 	
+	before_action :find_product, except: [:index,:new,:create]
+
 	def index
 		@products = Product.all
 	end
 
 	def show
+
 	end
 
 	def new
@@ -30,7 +33,10 @@ private
 
 	def find_product
 		# Query to read a record from the db
+		@product = Product.find(params["id"])
+
 	end
+
 
 
 end
