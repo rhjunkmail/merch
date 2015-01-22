@@ -45,6 +45,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "simple_form"
 
+gem "steer", github: "tmcdb/steer-rb"
+gem "bourbon"
+gem "neat"
+gem "paperclip", "~> 4.2"
+
+
+
 group :development do
 	gem "table_print"
 end
