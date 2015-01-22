@@ -15,7 +15,7 @@
 -run "rake db:migrate"
 -seed the db
 4. create views for looking at the products
-5. Create a form for adding data via the browswer
+5. Create a form for adding data via the browser
 6. handle create and update actions
 7. Provide destroy functionality
 ---
