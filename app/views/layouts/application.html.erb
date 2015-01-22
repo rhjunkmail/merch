@@ -22,6 +22,12 @@
 		</nav>
 	</header>
 
+<% flash.each do |key, value| %>
+	<div class="<%= key %>">
+	<p><%= value %></p>
+	</div>
+<% end %>
+
 <%= yield %>
 
 </body>
