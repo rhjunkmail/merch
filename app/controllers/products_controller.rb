@@ -11,9 +11,17 @@ class ProductsController < ApplicationController
 	end
 
 	def new
+		@product = Product.new
 	end
 
 	def create
+		@product = Product.new(product_params)
+		if @product.save
+			redirect_to product_path(@product)
+		else
+			render new
+		end
+
 	end
 
 	def edit
@@ -29,6 +37,7 @@ private
 
 	def product_params
 		# Whitelisted form data
+		params.require(:product).permit(:name,:description,:price_in_pence)
 	end
 
 	def find_product
