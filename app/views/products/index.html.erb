@@ -1,18 +1,27 @@
-<h1>Products</h1>
+<h2>Products</h2>
 
 <section class="products">
 
 	<% @products.each do |product| %>
 
-	<div class="product">
-		<%= link_to product_path(product) do %>
-			<h3><%= product.name %></h3>
-		<% end %>
+		<div class="product">
+
+			<div class="image">
+				<% link_to product_path(product) do %>
+					<%= image_tag product.image.url(:thumb) %>
+				<% end %>
+
+			</div>
+
+
 		
-		<div class = "info">
-			<p><%= product.description.truncate(50, separtor: /\s/) %></p>
-			<small><%= number_to_currency(product.price_in_pence.to_f/100, unit: "£") %></small>
-		</div>
+			<div class = "info">
+				<%= link_to product_path(product) do %>
+					<h4><%= product.name %></h4>
+				<% end %>
+				<p><%= product.description.truncate(70, separator: /\s/) %></p>
+				<small><%= number_to_currency(product.price_in_pence.to_f/100, unit: "£") %></small>
+			</div>
 		<div class="actions">
 			<!-- if logged in AND  user is owner -->
 			<%= link_to "Edit", edit_product_path(product) %>
@@ -20,6 +29,7 @@
 			<!--  -->
 		</div>
 	</div>
-	<% end %>
+	
+<% end %>
 
 </section>
