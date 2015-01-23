@@ -1,17 +1,24 @@
-class ProductsController < ApplicationController
+	class ProductsController < ApplicationController
 	
 	before_action :find_product, except: [:index,:new,:create]
 
 	def index
+		# this is publicly available
 		@products = Product.all
 	end
 
 	def show
-
+		# this is publicly available
 	end
 
 	def new
-		@product = Product.new
+		# only logged in users
+		if current_user.present?
+			@product = Product.new
+		else
+			flash[:error] = "You need to be logged in"
+			redirect_to new_session_path
+		end
 	end
 
 	def create
@@ -27,10 +34,12 @@ class ProductsController < ApplicationController
 	end
 
 	def edit
+		# only logged in users and user is owner
 
 	end
 
 	def update
+		# only logged in users and user is owner
 		if @product.update(product_params)
 			flash[:success] = "'#{@product.name}' was updated successfully."
 			redirect_to product_path(@product)
@@ -41,6 +50,7 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
+				# only logged in users and user is owner
 		@product.destroy
 			flash[:success] = "'#{@product.name}' was deleted from the shop."
 		@product = nil

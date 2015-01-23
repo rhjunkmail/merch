@@ -7,7 +7,7 @@
 		<div class="product">
 
 			<div class="image">
-				<% link_to product_path(product) do %>
+				<%= link_to product_path(product) do %>
 					<%= image_tag product.image.url(:thumb) %>
 				<% end %>
 
