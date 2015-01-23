@@ -1,0 +1,4 @@
+<h1>Thanks for purchasing <%= @product.name %>, your order will be despatched within 2 working days.</h1>
+<p>Shipping address : <% @order.delivery_address %></p>
+<p>Your account will be debited: <% number_to_currency @product_price_in_pence.to_f%></p>
+<% link_to "Continue browsing", root_path %>

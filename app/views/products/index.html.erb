@@ -24,7 +24,7 @@
 			</div>
 		<div class="actions">
 			<!-- if logged in AND  user is owner -->
-			<% if current_user? %>
+			<% if current_user? and user_owns?(product) %>
 				<%= link_to "Edit", edit_product_path(product) %>
 				<%= link_to "Delete", product_path(product), method: :delete, data: {confirm: "are you sure you want to delete that?"} %>
 			<% else %>

@@ -1,3 +1,9 @@
-<h2><%= @product.name %></h2>
-<p><%= @product.description %></p>
-<small>£<%= @product.price_in_pence/100 %> </small>
+
+<section class="product">
+	<h2><%= @product.name %></h2>
+	<p><%= image_tag @product.image.url(:medium) %></p>
+	<p><%= @product.description %></p>
+	<small>£<%= @product.price_in_pence/100 %> </small></p>
+	<%= link_to "Buy", new_product_order_path(@product) %>
+	<p><small>For more information contact <%= mail_to @product.user.email %>.</small></p>
+</section>
