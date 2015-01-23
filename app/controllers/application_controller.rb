@@ -18,6 +18,17 @@ def current_user?
 	current_user.present?
 end
 
+def require_user
+	unless current_user?
+		flash[:error] = "You must be logged in to do that."
+		redirect_to new_session_path and return # this is a security measure
+	end
+end
 
+# define an action that checks for users and makes sure the user owns something
+
+def require_owner
+	#check for current user
+	#use current_user to look for belongings
 
 end
